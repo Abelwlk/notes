@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "*.cpp": "cpp",
+        "*.json": "jsonc",
+        "qapplication": "cpp",
+        "qmainwindow": "cpp",
+        "new": "cpp",
+        "qdebug": "cpp"
+    }
+}
