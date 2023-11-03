@@ -1,10 +1,37 @@
 {
+    "qtConfigure.qtKitDir": "c:/Qt/5.15.2/mingw81_32",
     "files.associations": {
         "*.cpp": "cpp",
         "*.json": "jsonc",
         "qapplication": "cpp",
-        "qmainwindow": "cpp",
+        "qtranslator": "cpp",
+        "qprocess": "cpp",
+        "qfile": "cpp",
+        "qdir": "cpp",
+        "qjsonarray": "cpp",
+        "qjsonobject": "cpp",
+        "qnetworkreply": "cpp",
+        "qjsonparseerror": "cpp",
+        "qpushbutton": "cpp",
+        "string": "cpp",
+        "qpainter": "cpp",
+        "qmargins": "cpp",
+        "qcache": "cpp",
         "new": "cpp",
-        "qdebug": "cpp"
-    }
+        "*.tcc": "cpp"
+    },
+    "editor.minimap.autohide": true,
+    "formatFiles.excludedFolders": [
+        ".vscode",
+        ".git",
+        "build",
+        "相关文档",
+        "scripts"
+    ],
+    "formatFiles.useGitIgnore": true,
+    "formatFiles.extensionsToInclude": "h,c,cpp",
+    "commentTranslate.multiLineMerge": true,
+    "commentTranslate.source": "webxmsj.baidu-translate-baidu",
+    "commentTranslate.sourceLanguage": "en",
+    "commentTranslate.targetLanguage": "zh-CN"
 }

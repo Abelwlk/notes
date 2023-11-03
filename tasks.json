@@ -1,97 +1,69 @@
 {
+    "version": "2.0.0",
     "tasks": [
         {
-            "type": "shell",
             "label": "mkdir",
+            "type": "shell",
             "options": {
                 "cwd": "${workspaceFolder}"
             },
-            "command": "md",
+            "command": "mkdir",
             "args": [
                 "-Force",
                 "build"
             ]
         },
-        // 任务：qmake 根据.pro文件生成 Makefile，通常是.pro文件改动后才需要执行
-        //      这个任务的执行等效命令行 >> cd build
-        //                           >> qmake ../Demo.pro
         {
-            "type": "shell",
             "label": "qmake",
+            "type": "shell",
             "options": {
-                // cwd的意思是执行这个命令的时候，所在的目录
-                // 这里我们指定为工程目录下的build文件夹，这样的话
-                // 当执行qmake的时候，产生的中间文件就在build文件夹下面了
-                "cwd": "${workspaceFolder}\\build"
+                "cwd": "${workspaceFolder}/build"
             },
-            "command": "qmake", //command 命令，这个不用说了
+            "command": "qmake",
             "args": [
-                // qmake后面跟的参数，因为上面cwd配置为build目录，
-                // 所以.pro文件应该在build的上一级，所以使用../*.pro
-                "../*.pro",
+                "../SoftExoskeletonPro/${workspaceFolderBasename}.pro",
                 "-spec",
                 "win32-g++",
                 "\"CONFIG+=debug\"",
-                "\"CONFIG+=qml_debug\""
+                "\"CONFIG+=console\""
             ],
-            "dependsOn": [
-                //"mkdir"
-            ]
+            "dependsOn": []
         },
-        // 任务：编译 每次修改代码后都需要执行
-        //      任务等效命令行  >>make -j16 debug
         {
-            "type": "shell",
             "label": "make",
+            "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}\\build"
-            },
-            "group": {
-                "kind": "build",
-                "isDefault": true
+                "cwd": "${workspaceFolder}/build"
             },
             "command": "mingw32-make",
             "args": [
-                "-j16"
+                "-j7"
             ],
             "dependsOn": [
                 "qmake"
             ]
         },
         {
-            "label": "Build", // build任务
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceFolder}\\build"
-            },
-            "command": "mingw32-make -f Makefile.Debug"
-        },
-        // 运行程序
-        {
-            "type": "process",
             "label": "run",
+            "type": "process",
             "options": {
-                "cwd": "${workspaceFolder}\\build\\debug"
+                "cwd": "D:/wlkkk/ReferenceFiles/bin"
             },
-            "command": "demo.exe",
-            "args": [
-                ""
-            ],
+            "command": "${workspaceFolderBasename}.exe",
             "dependsOn": [
                 "make"
             ]
         },
-        // 任务：清理 等效命令行 make clean
         {
             "label": "clean",
+            "type": "shell",
             "options": {
-                "cwd": "${workspaceFolder}\\build"
+                "cwd": "${workspaceFolder}/build"
             },
             "command": "mingw32-make",
             "args": [
                 "clean"
             ]
         }
-    ],
-    "version": "2.0.0"
-}
+    ]
+}  
