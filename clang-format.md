@@ -112,8 +112,8 @@ MaxEmptyLinesToKeep: 1
 NamespaceIndentation: All
 PPIndentWidth: -1
 PackConstructorInitializers: NextLine
-PointerAlignment: Right
-ReferenceAlignment: Right
+PointerAlignment: Left
+ReferenceAlignment: Left
 ReflowComments: true
 SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 1
