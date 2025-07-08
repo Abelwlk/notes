@@ -90,7 +90,7 @@ namespace Utils {
 }
 ```
 
-##  xxxxxxxxxx27 1#include "serialization/serialize_xml.h"2​3struct MyClass {4    int myInt;5    std::string myString;6};7​8RTTR_REGISTRATION9{10    rttr::registration::class_<MyClass>("MyClass")11        .property("myInt", &MyClass::myInt)12        .property("myString", &MyClass::myString);13}14​15int main() {16    MyClass obj = {42, "Hello"};17    std::string xml_str = serialization::to_xml(obj);18    std::cout << "Serialized XML: " << xml_str << std::endl;19​20    MyClass new_obj;21    bool success = serialization::from_xml(new_obj, xml_str);22    if (success) {23        std::cout << "Deserialized XML: myInt=" << new_obj.myInt 24                  << ", myString=" << new_obj.myString << std::endl;25    }26    return 0;27}c++
+##  类型命名
 
 类型命名采用大驼峰命名风格。
 所有类型命名——类、结构体、联合体、类型定义（typedef）、枚举——使用相同约定，例如：
